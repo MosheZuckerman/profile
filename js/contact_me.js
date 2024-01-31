@@ -18,17 +18,16 @@ $(function() {
                 firstName = name.split(' ').slice(0, -1).join(' ');
             }
 
-            // Use Formspree for handling form submissions
+            // Use Formspree AJAX library for handling form submissions
             $.ajax({
-                url: "https://formspree.io/f/mayrwgvp", // Update this URL with your Formspree form endpoint
-                type: "POST",
+                url: "https://formspree.io/f/mayrwgvp",
+                method: "POST",
+                dataType: "json",
                 data: {
                     name: name,
                     email: email,
                     message: message
                 },
-                dataType: "json", // Specify JSON dataType
-                cache: false,
                 success: function(response) {
                     // Success message
                     if (response.success) {
